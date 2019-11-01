@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mat-elevation-z3">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">{{title}}</a>
+
+    <div class="right-nav">
+      <button mat-button [matMenuTriggerFor]="menu">Hi, Luke <img src="assets/img/avatar-luke.png" alt="Luke Skywalker" class="navbar-avatar"></button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>face</mat-icon>
+          Profile
+        </button>
+        <button mat-menu-item>
+          <mat-icon>settings</mat-icon>
+          Settings
+        </button>
+        <button mat-menu-item>
+          <mat-icon>logout</mat-icon>
+          Logout
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer>
+  <p>2019 &copy; by Bernardo Sampaio</p>
+</footer>

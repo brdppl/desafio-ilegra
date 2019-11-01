@@ -1,0 +1,60 @@
+// Header
+.navbar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    z-index: 999;
+    background: var(--bg-primary);
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: nowrap;
+
+        .navbar-brand {
+            padding-top: 0;
+        }
+
+        .right-nav {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                color: #fff;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .navbar-avatar {
+        width: 20px;
+        height: 20px;
+        margin-left: 5px;
+        border-radius: 50%;
+    }
+}
+
+.mat-menu-item {
+    outline: none;
+}
+
+// Footer
+footer {
+    background: var(--bg-primary);
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    
+    p {
+        margin: 0;
+        color: #fff;
+        font-size: 14px;
+        text-align: center;
+    }
+}

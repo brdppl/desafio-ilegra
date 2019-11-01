@@ -1,0 +1,78 @@
+// Presets
+.mb-15 {margin-bottom: 15px !important;}
+.mb-30 {margin-bottom: 30px !important;}
+.mb-50 {margin-bottom: 50px !important;}
+
+.mt-15 {margin-top: 15px !important;}
+.mt-30 {margin-top: 30px !important;}
+.mt-50 {margin-top: 50px !important;}
+
+@media only screen and (max-width: 767px) {
+    .mb-sm-15 {margin-bottom: 15px !important;}
+    .mb-sm-30 {margin-bottom: 30px !important;}
+    .mb-sm-50 {margin-bottom: 50px !important;}
+    
+    .mt-sm-15 {margin-top: 15px !important;}
+    .mt-sm-30 {margin-top: 30px !important;}
+    .mt-sm-50 {margin-top: 50px !important;}
+}
+
+.content {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.d-flex {
+    display: flex;
+
+    &.v-start {align-items: flex-start;}
+    &.v-center {align-items: center;}
+    &.v-end {align-items: flex-end;}
+
+    &.h-start {justify-content: flex-start;}
+    &.h-center {justify-content: center;}
+    &.h-end {justify-content: flex-end;}
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 500px;
+    width: 100%;
+}
+
+
+// Root
+:root {
+    // Fonts
+    --font-primary: 'Lato', sans-serif;
+
+    // Colors
+    --bg-primary: linear-gradient(to bottom right, #3A3140, #081526);
+    --bg-secondary: linear-gradient(to bottom right, rgba(58, 49, 64, 0.9), rgba(8, 21, 38, 0.9));
+    --color-black: #212529;
+
+    // Spinner
+    .darken .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: #3A3140;
+    }
+    .lighten .mat-progress-spinner circle, .mat-spinner circle {
+        stroke: #fafafa;
+    }
+
+    // Inputs
+    .mat-form-field-appearance-legacy .mat-form-field-label {
+        color: #3A3140;
+    }
+    .mat-form-field.mat-focused .mat-form-field-ripple {
+        background: #3A3140;
+    }
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+        color: #3A3140;
+    }
+}

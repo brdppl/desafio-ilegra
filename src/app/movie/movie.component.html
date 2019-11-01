@@ -1,0 +1,102 @@
+<div class="filme-page">
+    <div class="movie-details content">
+        <div class="background" [style.background-image]="getBanner(movie.episode_id)"></div>
+        <div class="overlay"></div>
+        <div class="container movie-detail-body">
+            <div class="alert alert-info" *ngIf="error">{{error}}</div>
+            <div class="loading-container lighten" *ngIf="isLoading">
+                <mat-progress-spinner mode="indeterminate"  strokeWidth="7"></mat-progress-spinner>
+            </div>
+            <div class="row animated fadeIn" *ngIf="!isLoading && !error" ngsReveal [ngsRevealSet]="{reset:false}" [ngsInterval]="50" [ngsSelector]="'.scrollItem'">
+                <div class="col-12 col-md-4 mb-sm-30 scrollItem">
+                    <div class="row">
+                        <div class="col-4 col-md-12">
+                            <img [src]="getCover(movie.episode_id)" class="img-fluid" alt="Star Wars: {{movie.title}}">
+                        </div>
+                        <div class="col-8 box-title-mobile d-md-none">
+                            <h1 class="title">Star Wars: {{movie.title}} <small>({{movie.release_date | date:'yyyy'}})</small></h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-8 scrollItem">
+                    <h1 class="title d-none d-md-block">Star Wars: {{movie.title}} <small>({{movie.release_date | date:'yyyy'}})</small></h1>
+                    <h5 class="subtitle">Directed by: {{movie.director}}</h5>
+                    <h5 class="subtitle">Productor(s): {{movie.producer}}</h5>
+                    <div class="overview">
+                        <h5>Overview</h5>
+                        <p [innerHTML]="movie.opening_crawl"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container content">
+        <div class="row">
+            <div class="col-12 col-md-10 offset-md-1">
+                <h1 class="title-info mb-15">Extra info's</h1>
+                <mat-accordion>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Characters</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        <mat-nav-list *ngIf="characters.length">
+                            <mat-list-item *ngFor="let char of characters">
+                                <h4 mat-line>{{char.name}}</h4>
+                            </mat-list-item>
+                        </mat-nav-list>
+                        <p class="alert alert-info" *ngIf="!characters.length">Have no Characters</p>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Planets</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        <mat-nav-list *ngIf="planets.length">
+                            <mat-list-item *ngFor="let planet of planets">
+                                <h4 mat-line>{{planet.name}}</h4>
+                            </mat-list-item>
+                        </mat-nav-list>
+                        <p class="alert alert-info" *ngIf="!planets.length">Have no Planets</p>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Species</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        <mat-nav-list *ngIf="species.length">
+                            <mat-list-item *ngFor="let specie of species">
+                                <h4 mat-line>{{specie.name}}</h4>
+                            </mat-list-item>
+                        </mat-nav-list>
+                        <p class="alert alert-info" *ngIf="!species.length">Have no Species</p>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Starships</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        <mat-nav-list *ngIf="starships.length">
+                            <mat-list-item *ngFor="let starship of starships">
+                                <h4 mat-line>{{starship.name}}</h4>
+                            </mat-list-item>
+                        </mat-nav-list>
+                        <p class="alert alert-info" *ngIf="!starships.length">Have no Starships</p>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>Vehicles</mat-panel-title>
+                        </mat-expansion-panel-header>
+                        
+                        <mat-nav-list *ngIf="vehicles.length">
+                            <mat-list-item *ngFor="let vehicle of vehicles">
+                                <h4 mat-line>{{vehicle.name}}</h4>
+                            </mat-list-item>
+                        </mat-nav-list>
+                        <p class="alert alert-info" *ngIf="!vehicles.length">Have no Vehicles</p>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </div>
+    </div>
+</div>

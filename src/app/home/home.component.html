@@ -1,0 +1,47 @@
+<div class="page-home">
+    <div class="container content">
+        <div class="loading-container darken" *ngIf="isLoading">
+            <mat-progress-spinner mode="indeterminate" strokeWidth="7"></mat-progress-spinner>
+        </div>
+        <div class="row animated fadeIn" *ngIf="!isLoading">
+            <div class="col-12 col-md-3 filters scrollItem">
+                <h3>Filter</h3>
+                <div class="row">
+                    <div class="col-12">
+                        <mat-form-field class="mt-15">
+                            <input matInput type="text" placeholder="Search..." [(ngModel)]="filterByText">
+                        </mat-form-field>
+                        <mat-form-field class="mt-15">
+                            <mat-label>By year</mat-label>
+                            <mat-select [(ngModel)]="filterByYear">
+                                <mat-option value="">All</mat-option>
+                                <mat-option *ngFor="let year of years | orderBy:[]:['asc'] | unique" [value]="year">
+                                    {{year}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 scrollItem">
+                <div class="alert alert-info" *ngIf="error">{{error}}</div>
+                <mat-card matRipple (click)="openDetails(x.url)" class="box-movie mb-15"
+                    *ngFor="let x of movies | filterBy:['title', 'opening_crawl']:filterByText | filterBy:['release_date']:filterByYear">
+                    <div class="box-cover" [style.background-image]="getCover(x.episode_id)"></div>
+                    <div class="box-content">
+                        <div class="content-header">
+                            <h3>Star Wars: {{x.title}}</h3>
+                            <h5>{{x.release_date | date:'MMMM'}} {{x.release_date | date:'dd'}}, {{x.release_date | date:'yyyy'}}</h5>
+                        </div>
+                        <div class="content-body">
+                            <p [innerHTML]="(x.opening_crawl.length > 180) ? (x.opening_crawl | slice:0:180)+'...' : (x.opening_crawl)"></p>
+                        </div>
+                        <div class="content-footer">
+                            <p>More details</p>
+                        </div>
+                    </div>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
