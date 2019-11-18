@@ -2,7 +2,7 @@
 
 Este projeto é um desafio proposto pela [Ilegra](https://ilegra.com/), nele deve ser integrada a API [SWAPI](https://swapi.co/)
 
-## Inicializalçao
+## Inicialização
 
 Rode o comando `npm i` para instalar as dependências, em seguida rode `npm run start` para inicializar o ambiente de desenvolvimento.
 
